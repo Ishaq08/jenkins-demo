@@ -36,7 +36,15 @@ pipeline {
                 sh 'docker build -t jenkins-demo:1.0 .'
             }
         }
+         
+        stage('Docker Run') {
+            steps {
+                echo 'Running Docker container...'
+                sh 'docker run --rm jenkins-demo:1.0'
+            }
+        }
     }
+
 
     post {
         success {
